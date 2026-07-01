@@ -97,10 +97,10 @@ while True:
             ):
 
                 clear()
-                print("注销GNOME桌面以继续")
+                print("关闭gnome的错误窗口以继续")
                 os.system(f"export DISPLAY={ip};gnome-session")
                 print("""
-    你你你成成成功功运行行了了GGGNNNOMMME桌面面面面面，，，但但特特特特别卡卡卡卡卡，因因因次不不不是真结局。。。。。。。。尝试安装轻量级的xfce桌面？（如果不知道怎么装，去edge里搜）
+在曾经，你还可以正常运行GNOME桌面，可是，现在时代变了，运行不了了。（提示：去Edge里搜索如何运行XFCE桌面）
     """)
                 sys.exit()
             elif c == "thunar" and "thunar" in installed:
