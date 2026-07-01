@@ -84,7 +84,7 @@ while True:
                 os.system("gnome-session")
                 print("""
     你尝试安装GNOME,但失败了。
-    尝试先运行Xlaunch和export DISPLAY=192.168.110.85在运行gnome-session ？
+    尝试先运行Xlaunch和export DISPLAY=你的Display在运行gnome-session ？
     或者去查教程B？
     你失败了
     """)
@@ -129,10 +129,10 @@ while True:
 请在执行以下步骤后输入你的ip地址以继续
 1.打开XLaunch
 2.选择任意模式
-3.选择start no client
+3.选择start no client0
 4.选择Disable access control
 5.点击完成
-输入你的ip地址：
+输入你的DISPLAY：
 """)
         xlaunched = True
     elif s == "3":
