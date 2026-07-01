@@ -7,7 +7,7 @@
 比如：WSL配置记.py：
 ```bash
 git clone https://github.com/bob123230/HOW_TO_USE_WSL.git
-cd HOW_TO_USE_WSL.git
+cd HOW_TO_USE_WSL
 python3 WSL配置记.py
 ```
 就可以玩了。
