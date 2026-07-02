@@ -50,7 +50,7 @@ while True:
             if s == "gimp":
                 os.system("gimp > /dev/null 2>&1 &")
                 input(
-                    """gimp将会打开，请任意作图，并保存为图片.xcf，同时保存到“桌面”，然后关闭窗口
+                    """gimp将会打开，请任意作图，并保存为图片.xcf，同时保存到Windows的桌面，然后关闭窗口
 若无法输入中文，请复制：图片.xcf
 按回车继续"""
                 )
