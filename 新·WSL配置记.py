@@ -29,7 +29,7 @@ while True:
             s = input("wsl@rong-he:~$ ")
             if s == "gimp":
                 s = input(
-                    "你想把图片导出到“桌面”，请输入导出路径（Windows的用户名是User）："
+                    "你想把图片导出到Windows的桌面，请输入导出路径（Windows的用户名是User）："
                 )
                 if s == "/mnt/c/Users/User/Desktop/":
                     print("获得：跨系统文件系统访问碎片1")
