@@ -181,7 +181,7 @@ def xiyou_and_wsl():
 你试图跑出来。
 天上的人看到了，就贴了一张“sudo apt install gnome”的纸条，你就出不来了。
 
-第四幕 二调GNOME桥
+第四幕 三调GNOME桥
 
 唐僧路过，就揭了纸条，把你救了出来。
 路上又收了猪八戒和沙僧。
@@ -263,7 +263,14 @@ WSL之道乃融合而非隔离。
         else:
             print("此非真言")
     scrool("""
-走上桥，却举步维艰，过桥时已筋疲力尽。
+走上桥，桥又塌了。
+又有一只妖怪在旁边，哈哈大笑：这图纸是几年前的。以前还有用，现在，按照图纸，已经没有用了。
+于是，你打死了那只妖怪，获得另一张图纸。
+上面写着：
+1. 以ubuntu-24.04-desktop-amd64.iso祭祀virtualbox
+2. 让他建造GNOME桥
+唐僧师徒按照图纸，桥果然成了。
+但是，却举步维艰，过桥时已精疲力尽。
 
 第五幕 小雷音寺
 
@@ -320,7 +327,7 @@ xfce4-session
             scrool("thunar如一舟，载着唐僧师徒过去了")
             break
         elif c == "gnome-session":
-            failed("桥成，但在桥上无法移动，后收之")
+            failed("桥刚建成，就塌了")
         elif c == "xfce4-session":
             failed("xfce如一舟，却开回了原点")
         else:
