@@ -112,7 +112,7 @@ while True:
     """)
                 input("按回车恢复更改...")
                 os.system(
-                    "sudo apt autoremove gnome xfce4 thunar xfce4-session"
+                    "sudo apt autoremove gnome xfce4 thunar xfce4-session "
                     "gnome-shell gnome-session -y"
                 )
                 sys.exit()
