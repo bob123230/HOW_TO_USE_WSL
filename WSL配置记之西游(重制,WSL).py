@@ -23,7 +23,8 @@ def over(grade: int):
     print("失误数：", grade)
     os.system(
         "sudo apt autoremove gnome xfce4 thunar xfce4-session "
-        "gnome-shell gnome-session -y && sudo snap remove code"
+        "gnome-shell gnome-session wine wine32 wine64 -y && "
+        "sudo snap remove code"
     )
     sys.exit()
 
@@ -88,8 +89,11 @@ def spchoose1(
 
 def xiyou_and_wsl():
     print("正在准备……")
+    os.system("sudo apt update")
     os.system("sudo apt install jupyter-lab wine snapd thunar -y")
     os.system("sudo snap install code --classic")
+    os.system("sudo dpkg --add-architecture i386 && apt-get update && "
+"apt-get install wine32:i386")
     scrool("""
 按Ctrl+C可以跳过剧情
 第一幕 猴王问世
@@ -247,7 +251,8 @@ WSL之道乃融合而非隔离。
             print("失误数：", faileds)
             os.system(
                 "sudo apt autoremove gnome xfce4 thunar xfce4-session "
-                "gnome-shell gnome-session -y && sudo snap remove code"
+                "gnome-shell gnome-session wine wine32 wine64 -y && "
+                "sudo snap remove code"
             )
             sys.exit()
         else:
@@ -273,7 +278,6 @@ WSL之道乃融合而非隔离。
 5.点击完成
 输入你的DISPLAY：
 """)
-    xlaunched = True
     ipseted = False
     while True:
         c = input("念真言：")
