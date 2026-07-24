@@ -2,6 +2,22 @@ import time
 import sys
 
 
+def caidan():
+    s = input("最后还有一个彩蛋，要看吗？（默认y/n）")
+    if s == "n":
+        return
+    else:
+        scrool("""
+唐僧取回真经，拿给长老看。
+长老看了，对着别人说：这个经，和现有的经相反，岂不是取了假经？
+见大唐的小乘经都写着“用wsl --install安装WSL”。而让取经人取得经写的是“WSL要装桌面”。
+唐僧就对取经人说：“你们看到的雷音寺的门匾是不是多了一个‘小’字？”取经人说：“是。”
+但是，就有的说：“会不会小雷音才是放真经的地方？”唐僧说：“去问佛祖。”
+问了，佛祖说：“西边的就是个假的，东边的才是。”
+还有的说：“会不会佛祖说的是错的呢？”唐僧呆住了。
+""")
+
+
 def over(grade: int):
     grades = ["S+", "S", "A+", "A", "B+", "B", "C+", "C", "D+", "D", "F+", "F"]
     if grade > 11:
@@ -21,6 +37,7 @@ def over(grade: int):
     else:
         print("彻头彻尾的隔离派")
     print("失误数：", grade)
+    caidan()
     sys.exit()
 
 
@@ -31,7 +48,7 @@ def failed(message: str = ""):
     print("失误")
     global faileds
     faileds += 1
-    print(message)
+    scrool(message)
 
 
 def scrool(
@@ -58,7 +75,7 @@ def choose(
         k = input()
         if k in s:
             if s.index(k) == right:
-                print(right_message)
+                scrool(right_message)
                 break
             else:
                 failed(failed_message)
@@ -73,10 +90,20 @@ def spchoose1(
         k = input()
         if k in s:
             if s.index(k) == right:
-                print(right_message)
+                scrool(right_message)
                 break
             else:
-                print(failed_message)
+                scrool(failed_message)
+
+
+def spchoose2(
+        s: list, tip: str
+):
+    while True:
+        print(tip)
+        k = input()
+        if k in s:
+            return k
 
 
 def xiyou_and_wsl():
@@ -235,6 +262,7 @@ WSL之道乃融合而非隔离。
                 print("你的评级：", "R")
                 print("WSL不该装桌面")
             print("失误数：", faileds)
+            caidan()
             sys.exit()
         else:
             print("此非真言")
@@ -272,7 +300,31 @@ WSL之道乃融合而非隔离。
 唐僧师徒按照图纸，桥果然成了。
 但是，却举步维艰，过桥时已精疲力尽。
 
-第五幕 小雷音寺
+第五幕 真假美猴王
+突然出现了两个悟空，你不辨真假。
+其中一个竟然打唐僧，于是唐僧念起紧箍咒。
+两个都喊疼。
+你注意到一个号“WSL装桌面”，一个号“WSL不装桌面”。
+哪个是真悟空呢？
+""")
+    s = spchoose2(["1", "2"], """
+[1]号称“WSL装桌面”的
+[2]号称“WSL不装桌面”的
+""")
+    scrool("""请记住你的选择
+两猴打到了地府，地府谛听知而不言。
+打到了灵山，如来指出号称“WSL装桌面”的是六耳猕猴。
+""")
+    if s == "1":
+        failed("你猜错了！")
+    else:
+        print("你猜对了！")
+    input("按回车继续……")
+    scrool("""
+那六耳猕猴想要变成一直黄蜂，想要逃跑，被如来金钵盖盖住。
+真悟空想要打死，虽然如来劝阻，但是还是被悟空打死了。
+
+第六幕 小雷音寺
 
 你看到了小雷音寺，以为是真的到西天了。
 看到了黄眉童子假扮的如来。
@@ -288,6 +340,9 @@ WSL之道乃融合而非隔离。
     print("真言已生效")
     scrool("""
 你拿着真经回去，半途一只怪鸟打翻了真经。
+见大多经书上写着：“WSL要装桌面”。
+但是thunar,xfce4-appfinder两卷经上被涂黑，孙悟空也看不清。
+经书已经极其破烂，无法带回。
 于是你回去。
 才发现那原来是黄眉童子。
 于是师徒四人就都被吸入人种袋了。
@@ -295,8 +350,18 @@ WSL之道乃融合而非隔离。
 佛祖说：那黄眉童子是成全你们九九八十一难的，干的却是偷吃童男童女的勾当。
 童子已经收拾了，但是，如果要放你们出人种袋，回答我几个问题。
 """)
+    huangmei_s_zhenjing_s_story = """
+黄眉放着一些假经书。这些经书上都写着“WSL要装桌面”。包括thunar和xfce4-appfinder。
+一天，如来路过，看见thunar和xfce4-appfinder虽然是真经的名字，却是假经的内容。
+于是就改成了真经的“WSL之道乃融合而非隔离”。
+被黄眉发现了。于是就涂掉了上面的字。
+"""
     choose(
-        ["1", "2"], "为什么XFCE不是真经？\n[1]是桌面\n[2]是黄眉童子给的", 0, "", "对了"
+        ["1", "2"],
+        "为什么XFCE不是真经？\n[1]是桌面\n[2]是黄眉童子给的",
+        0,
+        "其实假经堆里是有真经的，就是那两卷涂掉的，相传是这样来的：" + huangmei_s_zhenjing_s_story,
+        "对了"
     )
     choose(
         ["1", "2"],
@@ -306,7 +371,7 @@ WSL之道乃融合而非隔离。
         "对了。佛祖放唐僧师徒出来",
     )
     scrool("""
-第六幕 雷音寺
+第七幕 雷音寺
 
 向东行
 没想到只有几难，就到了雷音。
